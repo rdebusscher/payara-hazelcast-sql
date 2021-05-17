@@ -1,0 +1,8 @@
+mvn clean package
+
+java -jar payara-micro-5.2021.3.jar --addjars /Users/rubus/mvn_repo/com/hazelcast/hazelcast-sql/4.2/hazelcast-sql-4.2.jar target/hz-sql.war
+
+curl 'http://localhost:8080/hz-sql/hello?user=Rudy'
+curl 'http://localhost:8080/hz-sql/hello?user=Nicolas'
+
+curl localhost:8080/hz-sql/api/query/sessions

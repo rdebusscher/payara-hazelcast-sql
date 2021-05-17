@@ -1,0 +1,8 @@
+docker run --name mysql -e MYSQL_ROOT_PASSWORD=my-secret-pw -e MYSQL_USER=rubus -e MYSQL_PASSWORD=rubus -e MYSQL_DATABASE=rubus -d -p 33060:33060 -p 3306:3306  mysql:5.7.33
+
+mvn clean package
+
+java -jar payara-micro-5.2021.3.jar --addjars /Users/rubus/resources/mysql-connector-java-5.1.39.jar:/Users/rubus/mvn_repo/com/hazelcast/hazelcast-sql/4.2/hazelcast-sql-4.2.jar --postbootcommandfile postboot target/cache-sql.war
+
+
+curl localhost:8080/cache-sql/api/query/countries/Europe

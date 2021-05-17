@@ -1,0 +1,4 @@
+create-jdbc-connection-pool --datasourceclassname com.mysql.jdbc.jdbc2.optional.MysqlDataSource --restype javax.sql.DataSource --property url="jdbc\:mysql\://localhost\:3306/rubus" rubus-pool
+set resources.jdbc-connection-pool.rubus-pool.property.password=rubus resources.jdbc-connection-pool.rubus-pool.property.databaseName=rubus resources.jdbc-connection-pool.rubus-pool.property.serverName=localhost resources.jdbc-connection-pool.rubus-pool.property.user=rubus resources.jdbc-connection-pool.rubus-pool.property.portNumber=3306
+create-jdbc-resource --enabled=true --poolName=rubus-pool --target=domain jdbc/local-mysql
+create-resource-ref --enabled=true --target=server jdbc/local-mysql
